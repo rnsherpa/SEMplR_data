@@ -4,7 +4,9 @@
 #' This class contains three slots: the matrix, the baseline value, and metadata, which contains the TF name and 
 #' @slot matrix The SEM itself as a data frame. Rows represent sequence position (variable length), columns represent effects due to each nucleotide base A, C, G, T (fixed length: 4)
 #' @slot baseline A scrambled baseline, representing the binding score of randomly scrambled kmers of the same length. This is the binding cutoff for a TF
-#' @slot tf_name Name of the TF relevant to the SEM 
+#' @slot tf_name HGNC name of the TF relevant to the SEM 
+#' @slot ensembl_id ENSEMBL ID of TF gene
+#' @slot uniprot_ac UniProt accession of TF protein
 #' @slot pwm_filename Name of the original PWM file used to generate the SEM
 #' 
 setClass(
@@ -12,6 +14,8 @@ setClass(
   slots = c(
     matrix = "data.frame",
     tf_name = "character",
+    ensembl_id = "character",
+    uniprot_ac = "character",
     baseline = "numeric",
     pwm_filename = "character"
   )
